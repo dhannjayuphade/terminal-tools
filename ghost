@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import curses
+import time
+import random
+import math
+
+ghost_frames = [
+[
+"      .-.",
+"     (o o)",
+"     | O |",
+"    '~~~'"
+],
+[
+"      .-.",
+"     (- -)",
+"     | O |",
+"    '~~~'"
+]
+]
+
+def main(stdscr):
+    curses.curs_set(0)
+    curses.start_color()
+
+    curses.init_pair(1, curses.COLOR_CYAN, curses.COLOR_BLACK)
+
+    h, w = stdscr.getmaxyx()
+
+    x = 0
+    direction = 1
+    tick = 0
+
+    while True:
+        stdscr.clear()
+
+        ghost = ghost_frames[tick % len(ghost_frames)]
+
+        y = h // 2 + int(math.sin(tick / 3))
+
+        stdscr.attron(curses.color_pair(1))
+
+        for i, line in enumerate(ghost):
+            stdscr.addstr(y + i, x, line)
+
+        stdscr.attroff(curses.color_pair(1))
+
+        stdscr.refresh()
+
+        time.sleep(0.05)
+
+        x += direction
+
+        if x >= w - 12:
+            direction = -1
+        elif x <= 0:
+            direction = 1
+
+        tick += 1
+
+curses.wrapper(main)
