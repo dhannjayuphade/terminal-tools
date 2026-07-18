@@ -1,51 +1,57 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env python3
 
-CYAN='\033[1;36m'
-BLUE='\033[1;34m'
-WHITE='\033[1;37m'
-RESET='\033[0m'
+import os
+import time
 
-while true
-do
+frames = [
+"""
+               ☁️         ☁️
 
-clear
-echo -e "${BLUE}☁ ☁ ☁ ☁ ☁ ☁ ☁${RESET}"
-echo ""
-echo -e "${CYAN}✈${RESET}"
-echo ""
-echo -e "${WHITE}SKY AIRLINES${RESET}"
-sleep 0.15
+                    ☁️
 
-clear
-echo -e "${BLUE}☁ ☁ ☁ ☁ ☁ ☁ ☁${RESET}"
-echo ""
-echo -e "${CYAN}    ✈${RESET}"
-echo ""
-echo -e "${WHITE}SKY AIRLINES${RESET}"
-sleep 0.15
 
-clear
-echo -e "${BLUE}☁ ☁ ☁ ☁ ☁ ☁ ☁${RESET}"
-echo ""
-echo -e "${CYAN}        ✈${RESET}"
-echo ""
-echo -e "${WHITE}SKY AIRLINES${RESET}"
-sleep 0.15
+          ✈️
+""",
+"""
+               ☁️         ☁️
 
-clear
-echo -e "${BLUE}☁ ☁ ☁ ☁ ☁ ☁ ☁${RESET}"
-echo ""
-echo -e "${CYAN}            ✈${RESET}"
-echo ""
-echo -e "${WHITE}SKY AIRLINES${RESET}"
-sleep 0.15
+          ✈️
 
-clear
-echo -e "${BLUE}☁ ☁ ☁ ☁ ☁ ☁ ☁${RESET}"
-echo ""
-echo -e "${CYAN}                ✈${RESET}"
-echo ""
-echo -e "${WHITE}SKY AIRLINES${RESET}"
-sleep 0.15
+                    ☁️
+""",
+"""
+               ☁️
 
-done
+          ✈️
+
+      ☁️
+""",
+"""
+          ✈️
+
+      ☁️          ☁️
+""",
+"""
+      ✈️
+
+
+☁️            ☁️
+""",
+"""
+✈️
+
+      ☁️
+
+            ☁️
+""",
+"""
+      ☁️        ☁️
+
+✨ Happy Journey! ✨
+"""
+]
+
+for frame in frames:
+    os.system("clear")
+    print(frame)
+    time.sleep(0.4)
